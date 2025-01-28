@@ -1,27 +1,24 @@
-choseCirc = "false"
-choseArea = "false"
-choseDiameter = "false"
-choseRadius = "false"
+import math
 
-choice = input("What formula would you like to do? Circumference, area, diameter, and radius: ").capitalize()
+def calcCirc(radius):
+    return 2 * math.pi * radius
 
-while choice not in ['Circumference', 'Area', 'Diameter', 'Radius']:
-    choice = input("Invalid input. What formula would you like to do? Circumference, area, diameter, and radius: ").capitalize()
+def calcArea(radius):
+    return math.pi * radius ** 2
+
+choice = input("What formula would you like to do? Circumference or area: ").capitalize()
+
+while choice not in ['Circumference', 'Circ', 'Area']:
+    choice = input("Invalid input. What formula would you like to do? Circumference or area: ").capitalize()
+
+radius = float(input("Please provide the radius of the circle: "))
 
 if choice == "Circumference":
-    choseCirc = "true"
+    result = calcCirc(radius)
+    print(f"The circumference is {result:f}")
+elif choice == "Circ":
+    result = calcCirc(radius)
+    print(f"The circumference is {result:f}")
 elif choice == "Area":
-    choseArea = "true"
-elif choice == "Diameter":
-    choseDiameter = "true"
-elif choice == "Radius":
-    choseRadius = "Radius"
-
-if choseCirc == "true":
-    radius = input("Please provide the radius of the circle: ")
-elif choseArea == "true":
-    radius = input("Please provide the radius of the circle: ")
-elif choseDiameter == "true":
-    radius = input("Please provide the radius of the circle: ")
-elif choseRadius == "true":
-    radius = input("Please provide the radius of the circle: ")
+    result = calcArea(radius)
+    print(f"The area is {result:f}")
